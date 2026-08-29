@@ -265,6 +265,8 @@
   .rev .rs{color:var(--honey-deep);font-size:11.5px;letter-spacing:1.5px;flex:0 0 auto}
   .rev .ru{font-size:11px;color:var(--ink-faint);margin:2px 0 6px}
   .rev .rb{font-size:13px;line-height:1.5;color:#4b4638}
+  .rev.norev .rb a{color:var(--honey-deep);font-weight:700;text-decoration:none}
+  .rev.norev .rb a:hover{text-decoration:underline;text-underline-offset:3px}
 
   /* ---------- PAGES ---------- */
   .page-hd{padding:40px 24px 6px}
@@ -756,9 +758,7 @@
           var kick=p.shotKicker?'<span class="shot-kick">'+p.shotKicker+' '+(i+1)+'/'+nsh+'</span>':'';
           return '<div class="shot" style="background:'+s.g+'">'+kick+'<h4>'+s.t+'</h4><p>'+s.p+'</p></div>';
         }).join("");
-    var revs=p.revs.length
-      ? '<h3>Notes & avis</h3>'+p.revs.map(function(r){return '<div class="rev"><div class="rh"><span class="rt">'+r.t+'</span><span class="rs">'+r.s+'</span></div><div class="ru">'+r.u+'</div><div class="rb">'+r.b+'</div></div>'}).join("")
-      : '<h3>Notes & avis</h3><div class="rev"><div class="rb">Pas encore d\'avis, l\'app arrive bientôt. Reviens vite.</div></div>';
+    var revs='<h3>Avis</h3><div class="rev norev"><div class="rb">Pas encore d\'avis publics. Si tu utilises '+p.name+', ton retour serait le tout premier : <a href="https://wa.me/32473122452" target="_blank" rel="noopener">écris-nous</a>.</div></div>';
     var icons=window.GOOOD_ICONS||{};
     var bigIc=icons[p.id]
       ? '<div class="as-ic asimg"><img src="'+icons[p.id]+'" alt="'+p.name+'"></div>'
@@ -766,7 +766,7 @@
     return '<div class="as-head">'+bigIc+
       '<div class="as-meta"><div class="as-name">'+p.name+'</div><div class="as-tag">'+p.tag+'</div>'+get+'</div></div>'+
       '<div class="as-stats">'+
-        '<div class="as-stat"><div class="v">'+p.rating+' ★</div><div class="k">'+p.ratings+'</div></div>'+
+        '<div class="as-stat"><div class="v">'+(p.ios&&p.android?"iOS · Android":p.ios?"iOS":p.android?"Android":p.url?"Web":"Bientôt")+'</div><div class="k">Disponible</div></div>'+
         '<div class="as-stat"><div class="v">'+p.dev+'</div><div class="k">Studio</div></div>'+
         '<div class="as-stat"><div class="v">'+p.cat+'</div><div class="k">Catégorie</div></div>'+
       '</div>'+
