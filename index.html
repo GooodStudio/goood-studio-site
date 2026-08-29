@@ -117,11 +117,11 @@
   .batt i{display:block;height:100%;width:82%;background:#fff;border-radius:1.5px}
 
   /* ---------- HOME ---------- */
-  .home{position:absolute;inset:0;padding:70px 24px 0;font-family:var(--ui);z-index:10}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 14px;align-content:start}
-  .cell{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;border:none;background:none;padding:0}
+  .home{position:absolute;inset:0;padding:17% 5.6% 0;font-family:var(--ui);z-index:10}
+  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5.5% 3.6%;align-content:start}
+  .cell{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;border:none;background:none;padding:0;min-width:0;width:100%}
   .ic{
-    width:60px;height:60px;border-radius:14.5px;position:relative;overflow:hidden;
+    width:min(100%,60px);aspect-ratio:1/1;height:auto;border-radius:24.5%;position:relative;overflow:hidden;
     display:grid;place-items:center;
     box-shadow:0 8px 16px -4px rgba(0,0,20,.35),inset 0 1px 1px rgba(255,255,255,.35);
     transition:transform .18s cubic-bezier(.3,1.6,.5,1);
@@ -133,9 +133,10 @@
   }
   .cell:active .ic{transform:scale(.86)}
   .cell:hover .ic{transform:translateY(-2px)}
-  .lbl{font-size:11.5px;color:#fff;font-weight:500;text-shadow:0 1px 5px rgba(0,0,0,.55);letter-spacing:.1px;text-align:center;line-height:1.1}
-  .ic .mono{font-family:var(--disp);font-weight:800;color:#fff;font-size:31px;line-height:1;letter-spacing:-.03em;position:relative;z-index:1;text-shadow:0 1px 3px rgba(0,0,0,.2)}
-  .ic svg{width:29px;height:29px;position:relative;z-index:1;color:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
+  .lbl{font-size:clamp(10px,1.1em,11.5px);color:#fff;font-weight:500;text-shadow:0 1px 5px rgba(0,0,0,.55);letter-spacing:.1px;text-align:center;line-height:1.1;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ic{container-type:inline-size}
+  .ic .mono{font-family:var(--disp);font-weight:800;color:#fff;font-size:52cqw;line-height:1;letter-spacing:-.03em;position:relative;z-index:1;text-shadow:0 1px 3px rgba(0,0,0,.2)}
+  .ic svg{width:48cqw;height:48cqw;position:relative;z-index:1;color:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
   .ic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   a.cell{text-decoration:none}
 
@@ -148,10 +149,11 @@
     color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:16px;
     aspect-ratio:1/1;font-family:var(--ui);
   }
-  .widget .wtitle{font-size:13px;font-weight:700;letter-spacing:.2px;position:relative;z-index:2}
-  .widget .big{font-family:var(--disp);font-weight:800;font-size:48px;line-height:.9;position:relative;z-index:2}
-  .widget .sub{font-size:11px;opacity:.75;font-weight:500;margin-top:3px;position:relative;z-index:2}
-  .widget .sun{position:absolute;right:16px;top:14px;width:44px;height:44px;border-radius:50%;
+  .widget{container-type:inline-size}
+  .widget .wtitle{font-size:clamp(10px,8.6cqw,13px);font-weight:700;letter-spacing:.2px;position:relative;z-index:2}
+  .widget .big{font-family:var(--disp);font-weight:800;font-size:clamp(30px,32cqw,48px);line-height:.9;position:relative;z-index:2}
+  .widget .sub{font-size:clamp(9px,7.2cqw,11px);opacity:.75;font-weight:500;margin-top:3px;position:relative;z-index:2}
+  .widget .sun{position:absolute;right:11%;top:10%;width:29cqw;height:29cqw;border-radius:50%;
     background:radial-gradient(circle at 38% 34%,#ffd97a,#F5A623 68%);
     box-shadow:0 0 26px 8px rgba(245,166,35,.35)}
   .widget .orbit{position:absolute;right:-24px;top:-20px;width:130px;height:130px;border-radius:50%;
@@ -173,11 +175,12 @@
     animation:tipflo 3.4s ease-in-out infinite;transition:opacity .25s}
   .tip::after{content:"";position:absolute;bottom:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:11px;height:11px;background:#fff;border-radius:2px}
   @keyframes tipflo{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
-  .dock{position:absolute;left:15px;right:15px;bottom:17px;height:94px;z-index:11;
+  .dock{position:absolute;left:4%;right:4%;bottom:17px;height:min(94px,11.2%);min-height:72px;z-index:11;
     background:rgba(255,255,255,.2);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
     border:1px solid rgba(255,255,255,.24);border-radius:33px;
-    display:flex;align-items:center;justify-content:space-around;padding:0 14px}
-  .dock .ic{width:58px;height:58px}
+    display:flex;align-items:center;justify-content:space-around;padding:0 3.5%}
+  .dock .cell{flex:0 1 58px}
+  .dock .ic{width:100%}
   .homebar{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);width:120px;height:4px;border-radius:3px;background:rgba(255,255,255,.85);z-index:12}
 
   /* ---------- BOOT ---------- */
