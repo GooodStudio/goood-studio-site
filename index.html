@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Goood Studio</title>
 <meta name="description" content="Goood Studio, un studio de ventures par Anne-Charlotte Jalhay et Valentin Lejeune. On aide les passionné·es à exécuter leur mission avec efficience.">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
 
   /* ---- logo (bigger) ---- */
   .brand{display:flex;justify-content:center;margin-bottom:20px}
-  .logo-main{height:98px;width:auto;display:block}
+  .logo-main{height:147px;width:auto;display:block}
   .wordmark{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.045em;line-height:.9;position:relative;display:inline-block;font-size:62px}
   .wm-name{display:block;color:var(--ink)}
   .wm-name .oO{background-image:var(--sweep);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-transform:uppercase;font-size:1.02em}
@@ -82,12 +82,17 @@
   .card.soon{opacity:1}
   .card.flat{cursor:default}
   /* gold CTA block */
-  .card.cta{background:var(--gold-tex)}
-  .card.cta .name{color:#2a1608}
-  .card.cta .desc{color:rgba(42,22,8,.82)}
+  .card.cta{background:var(--gold-tex);position:relative;overflow:hidden}
+  .card.cta>*{position:relative;z-index:2}
+  .card.cta::after{content:"";position:absolute;top:0;bottom:0;left:0;width:55%;pointer-events:none;z-index:1;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.62) 50%,transparent 100%);transform:translateX(-170%);animation:sweep 5.5s ease-in-out infinite}
+  .card.cta:hover::after{animation-duration:2.3s}
+  .card.cta .name{color:#241305;font-weight:700}
+  .card.cta .desc{color:#3a2208;font-weight:600}
   .card.cta .logo{background:#25D366;box-shadow:0 3px 12px -4px rgba(37,211,102,.9)}
   .card.cta .logo svg{width:27px;height:27px;fill:#fff}
   .card.cta .arrow{background:var(--wine-tex);color:#fff}
+  @keyframes sweep{0%{transform:translateX(-170%)}22%{transform:translateX(300%)}100%{transform:translateX(300%)}}
+  @media (prefers-reduced-motion: reduce){.card.cta::after{animation:none;opacity:0}}
 
   /* card with store buttons */
   .card.stores{flex-wrap:wrap}
