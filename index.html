@@ -16,7 +16,9 @@
   :root{
     --wine:#5E1F2E; --gold:#C9A227; --ink:#111214; --paper:#FFFFFF; --cream:#FAF7F2; --muted:#6a6560; --line:#eadfce;
     --sweep:linear-gradient(115deg,#5E1F2E 0%,#7E2438 24%,#A6512F 50%,#D9A94B 76%,#F3E0A0 100%);
-    --page-bg:#F4EFE7;
+    --wine-tex:#5E1F2E url('site-assets/mat-wine.jpg') center/cover;
+    --gold-tex:#C9A227 url('site-assets/mat-gold.jpg') center/cover;
+    --page-bg:#FFFFFF;
   }
   *{box-sizing:border-box}
   html,body{margin:0}
@@ -32,6 +34,7 @@
 
   /* ---- logo (bigger) ---- */
   .brand{display:flex;justify-content:center;margin-bottom:20px}
+  .logo-main{height:76px;width:auto;display:block}
   .wordmark{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.045em;line-height:.9;position:relative;display:inline-block;font-size:62px}
   .wm-name{display:block;color:var(--ink)}
   .wm-name .oO{background-image:var(--sweep);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-transform:uppercase;font-size:1.02em}
@@ -59,30 +62,30 @@
   .hcap .l2{margin:1px 0 0;font-size:13.5px;color:#E9C877}
 
   /* ---- ventures ---- */
-  .lbl{margin:28px 4px 12px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
-  .card{display:flex;align-items:center;gap:13px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:13px 15px;margin-bottom:11px;transition:transform .14s ease,box-shadow .14s ease,border-color .14s}
-  a.card:hover{transform:translateY(-2px);box-shadow:0 14px 30px -20px rgba(94,31,46,.55);border-color:#e0d2ba}
-  .logo{flex:none;width:46px;height:46px;border-radius:12px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .lbl{margin:30px 4px 13px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--wine);font-weight:700}
+  .card{display:flex;align-items:center;gap:13px;background:var(--wine-tex);border-radius:16px;padding:14px 16px;margin-bottom:11px;box-shadow:0 12px 26px -20px rgba(94,31,46,.75);transition:transform .14s ease,box-shadow .14s ease}
+  a.card:hover{transform:translateY(-2px);box-shadow:0 18px 34px -16px rgba(94,31,46,.8)}
+  .logo{flex:none;width:46px;height:46px;border-radius:12px;background:#fff;box-shadow:0 2px 8px -3px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;overflow:hidden}
   .logo img{width:100%;height:100%;object-fit:cover}
   .logo.contain img{object-fit:contain;padding:7px}
   .body{flex:1;min-width:0}
-  .name{font-family:"Space Grotesk";font-weight:700;font-size:16px;letter-spacing:-.01em;color:var(--ink);display:flex;align-items:center;gap:8px}
-  .desc{font-size:13px;color:#4a453f;margin-top:3px}
-  .arrow{flex:none;width:30px;height:30px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;color:var(--wine);font-size:15px}
-  a.card:hover .arrow{background:var(--wine);color:#fff}
-  .badge{font-family:"Hanken Grotesk";font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);background:rgba(201,162,39,.14);padding:2px 7px;border-radius:999px}
-  .card.soon{opacity:.92}
+  .name{font-family:"Space Grotesk";font-weight:700;font-size:16px;letter-spacing:-.01em;color:#fff;display:flex;align-items:center;gap:8px}
+  .desc{font-size:13px;color:rgba(255,255,255,.84);margin-top:3px}
+  .arrow{flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold-tex);color:#2a1608;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 3px 10px -4px rgba(0,0,0,.5)}
+  a.card:hover .arrow{filter:brightness(1.06)}
+  .badge{font-family:"Hanken Grotesk";font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#2a1608;background:#E4C264;padding:2px 8px;border-radius:999px}
+  .card.soon{opacity:1}
   .card.flat{cursor:default}
 
   /* card with store buttons */
   .card.stores{flex-wrap:wrap}
   .stores .top{display:flex;align-items:center;gap:13px;width:100%}
   .storebtns{display:flex;gap:8px;margin-top:11px;padding-left:59px}
-  .sbtn{display:inline-flex;align-items:center;gap:7px;background:#111214;color:#fff;border-radius:9px;padding:6px 12px;transition:opacity .14s}
-  .sbtn:hover{opacity:.82}
-  .sbtn svg{width:16px;height:17px;fill:#fff;flex:none}
-  .sbtn small{display:block;font-size:8px;font-weight:500;opacity:.8;letter-spacing:.03em;line-height:1.1;text-transform:uppercase}
-  .sbtn b{display:block;font-size:12.5px;font-weight:600;line-height:1.2}
+  .sbtn{display:inline-flex;align-items:center;gap:7px;background:var(--gold-tex);color:#2a1608;border-radius:9px;padding:6px 12px;box-shadow:0 3px 10px -5px rgba(0,0,0,.5);transition:filter .14s}
+  .sbtn:hover{filter:brightness(1.06)}
+  .sbtn svg{width:16px;height:17px;fill:#2a1608;flex:none}
+  .sbtn small{display:block;font-size:8px;font-weight:600;opacity:.72;letter-spacing:.03em;line-height:1.1;text-transform:uppercase}
+  .sbtn b{display:block;font-size:12.5px;font-weight:700;line-height:1.2}
   @media(max-width:400px){.storebtns{padding-left:0;gap:7px}.sbtn{padding:6px 10px}}
 
   footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12.5px;line-height:1.7}
@@ -97,7 +100,7 @@
 <body>
   <div class="wrap">
 
-    <div class="brand rv"><span class="wordmark"><span class="wm-name">goo<span class="oO">o</span>d</span><span class="wm-sub">studio</span></span></div>
+    <div class="brand rv"><img class="logo-main" src="site-assets/logo-goood.png" alt="Goood Studio"></div>
 
     <div class="hero rv" style="--d:.05s">
       <img src="hero.jpg" alt="Anne-Charlotte et Valentin regardant dans une boîte">
