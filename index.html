@@ -19,6 +19,7 @@
     --wine-tex:#5E1F2E url('site-assets/mat-wine.jpg') center/cover;
     --gold-tex:#C9A227 url('site-assets/mat-gold.jpg') center/cover;
     --page-bg:#FFFFFF;
+    --spring:cubic-bezier(.34,1.56,.5,1);
   }
   *{box-sizing:border-box}
   html,body{margin:0}
@@ -34,7 +35,7 @@
 
   /* ---- logo (bigger) ---- */
   .brand{display:flex;justify-content:center;margin-bottom:20px}
-  .logo-main{height:76px;width:auto;display:block}
+  .logo-main{height:98px;width:auto;display:block}
   .wordmark{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.045em;line-height:.9;position:relative;display:inline-block;font-size:62px}
   .wm-name{display:block;color:var(--ink)}
   .wm-name .oO{background-image:var(--sweep);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-transform:uppercase;font-size:1.02em}
@@ -63,36 +64,54 @@
 
   /* ---- ventures ---- */
   .lbl{margin:30px 4px 13px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--wine);font-weight:700}
-  .card{display:flex;align-items:center;gap:13px;background:var(--wine-tex);border-radius:16px;padding:14px 16px;margin-bottom:11px;box-shadow:0 12px 26px -20px rgba(94,31,46,.75);transition:transform .14s ease,box-shadow .14s ease}
-  a.card:hover{transform:translateY(-2px);box-shadow:0 18px 34px -16px rgba(94,31,46,.8)}
-  .logo{flex:none;width:46px;height:46px;border-radius:12px;background:#fff;box-shadow:0 2px 8px -3px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .card{display:flex;align-items:center;gap:13px;background:var(--wine-tex);border-radius:16px;padding:14px 16px;margin-bottom:11px;box-shadow:0 12px 26px -20px rgba(94,31,46,.75);transition:transform .34s var(--spring),box-shadow .3s ease}
+  a.card{cursor:pointer}
+  a.card:hover{transform:translateY(-4px) scale(1.012);box-shadow:0 22px 38px -18px rgba(94,31,46,.82)}
+  a.card:active{transform:translateY(-1px) scale(.985);transition-duration:.09s;box-shadow:0 10px 22px -18px rgba(94,31,46,.8)}
+  .logo{flex:none;width:46px;height:46px;border-radius:12px;background:#fff;box-shadow:0 2px 8px -3px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:transform .34s var(--spring)}
+  a.card:hover .logo{transform:scale(1.07) rotate(-2deg)}
   .logo img{width:100%;height:100%;object-fit:cover}
   .logo.contain img{object-fit:contain;padding:7px}
   .body{flex:1;min-width:0}
   .name{font-family:"Space Grotesk";font-weight:700;font-size:16px;letter-spacing:-.01em;color:#fff;display:flex;align-items:center;gap:8px}
   .desc{font-size:13px;color:rgba(255,255,255,.84);margin-top:3px}
-  .arrow{flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold-tex);color:#2a1608;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 3px 10px -4px rgba(0,0,0,.5)}
-  a.card:hover .arrow{filter:brightness(1.06)}
+  .arrow{flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold-tex);color:#2a1608;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 3px 10px -4px rgba(0,0,0,.5);transition:transform .34s var(--spring),filter .2s}
+  a.card:hover .arrow{transform:scale(1.15) translateX(1px);filter:brightness(1.07)}
+  a.card:active .arrow{transform:scale(.95)}
   .badge{font-family:"Hanken Grotesk";font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#2a1608;background:#E4C264;padding:2px 8px;border-radius:999px}
   .card.soon{opacity:1}
   .card.flat{cursor:default}
+  /* gold CTA block */
+  .card.cta{background:var(--gold-tex)}
+  .card.cta .name{color:#2a1608}
+  .card.cta .desc{color:rgba(42,22,8,.82)}
+  .card.cta .logo{background:#25D366;box-shadow:0 3px 12px -4px rgba(37,211,102,.9)}
+  .card.cta .logo svg{width:27px;height:27px;fill:#fff}
+  .card.cta .arrow{background:var(--wine-tex);color:#fff}
 
   /* card with store buttons */
   .card.stores{flex-wrap:wrap}
   .stores .top{display:flex;align-items:center;gap:13px;width:100%}
   .storebtns{display:flex;gap:8px;margin-top:11px;padding-left:59px}
-  .sbtn{display:inline-flex;align-items:center;gap:7px;background:var(--gold-tex);color:#2a1608;border-radius:9px;padding:6px 12px;box-shadow:0 3px 10px -5px rgba(0,0,0,.5);transition:filter .14s}
-  .sbtn:hover{filter:brightness(1.06)}
+  .sbtn{display:inline-flex;align-items:center;gap:7px;background:var(--gold-tex);color:#2a1608;border-radius:9px;padding:6px 12px;box-shadow:0 3px 10px -5px rgba(0,0,0,.5);transition:transform .32s var(--spring),filter .16s,box-shadow .2s}
+  .sbtn:hover{transform:translateY(-2px) scale(1.03);filter:brightness(1.06);box-shadow:0 8px 18px -8px rgba(0,0,0,.55)}
+  .sbtn:active{transform:translateY(0) scale(.95);transition-duration:.08s}
   .sbtn svg{width:16px;height:17px;fill:#2a1608;flex:none}
   .sbtn small{display:block;font-size:8px;font-weight:600;opacity:.72;letter-spacing:.03em;line-height:1.1;text-transform:uppercase}
   .sbtn b{display:block;font-size:12.5px;font-weight:700;line-height:1.2}
   @media(max-width:400px){.storebtns{padding-left:0;gap:7px}.sbtn{padding:6px 10px}}
 
-  footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12.5px;line-height:1.7}
-  footer b{color:#4a453f;font-weight:600}
+  footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12.5px;line-height:2}
+  footer b{color:#3a352f;font-weight:600}
+  .fico{display:inline-flex;width:19px;height:19px;border-radius:5px;overflow:hidden;vertical-align:-4px;margin:0 1px;box-shadow:0 2px 6px -3px rgba(0,0,0,.5);transition:transform .3s cubic-bezier(.34,1.5,.5,1)}
+  .fico:hover{transform:translateY(-2px) scale(1.1)}
+  .fico:active{transform:scale(.9);transition-duration:.06s}
+  .fico svg{width:100%;height:100%;display:block}
 
   .wa{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -8px rgba(37,211,102,.7);z-index:50;transition:transform .15s}
-  .wa:hover{transform:scale(1.06)}
+  .wa{transition:transform .34s var(--spring),box-shadow .2s}
+  .wa:hover{transform:translateY(-3px) scale(1.09)}
+  .wa:active{transform:scale(.92);transition-duration:.08s}
   .wa svg{width:31px;height:31px;fill:#fff}
   @media(min-width:560px){.wa{right:calc(50% - 270px + 6px)}}
 </style>
@@ -105,16 +124,6 @@
     <div class="hero rv" style="--d:.05s">
       <img src="hero.jpg" alt="Anne-Charlotte et Valentin regardant dans une boîte">
       <div class="greet">Salut, ici Anne-Charlotte &amp; Valentin.</div>
-
-      <a class="fbtn ac1" href="https://www.linkedin.com/in/annecharlottejalhay/" target="_blank" rel="noopener" aria-label="LinkedIn Anne-Charlotte" title="LinkedIn · Anne-Charlotte">
-        <svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#0A66C2"/><path fill="#fff" d="M13.6 15.6a2.15 2.15 0 1 0 0-4.3 2.15 2.15 0 0 0 0 4.3zM11.8 17.3h3.6V29h-3.6zM17.7 17.3h3.45v1.6h.05c.48-.9 1.66-1.86 3.42-1.86 3.66 0 4.33 2.4 4.33 5.53V29h-3.6v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V29h-3.6z"/></svg>
-      </a>
-      <a class="fbtn ac2" href="https://www.instagram.com/annecharlotte.diet/" target="_blank" rel="noopener" aria-label="Instagram Anne-Charlotte" title="Instagram · Anne-Charlotte">
-        <svg viewBox="0 0 40 40"><defs><radialGradient id="ig" cx="30%" cy="107%" r="135%"><stop offset="0" stop-color="#FED576"/><stop offset=".26" stop-color="#F47133"/><stop offset=".5" stop-color="#BC3081"/><stop offset=".78" stop-color="#4C63D2"/></radialGradient></defs><rect width="40" height="40" fill="url(#ig)"/><g fill="none" stroke="#fff" stroke-width="2.4"><rect x="11.5" y="11.5" width="17" height="17" rx="5"/><circle cx="20" cy="20" r="4.3"/></g><circle cx="25.2" cy="14.8" r="1.4" fill="#fff"/></svg>
-      </a>
-      <a class="fbtn vl1" href="https://www.linkedin.com/in/valentinlejeune/" target="_blank" rel="noopener" aria-label="LinkedIn Valentin" title="LinkedIn · Valentin">
-        <svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#0A66C2"/><path fill="#fff" d="M13.6 15.6a2.15 2.15 0 1 0 0-4.3 2.15 2.15 0 0 0 0 4.3zM11.8 17.3h3.6V29h-3.6zM17.7 17.3h3.45v1.6h.05c.48-.9 1.66-1.86 3.42-1.86 3.66 0 4.33 2.4 4.33 5.53V29h-3.6v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V29h-3.6z"/></svg>
-      </a>
 
       <div class="hcap">
         <h1>On aide les passionné·es à exécuter leur mission avec efficience</h1>
@@ -179,8 +188,18 @@
       <span class="arrow">↗</span>
     </a>
 
-    <footer class="rv" style="--d:.55s">
-      Fait à quatre mains par <b>Anne-Charlotte Jalhay</b> &amp; <b>Valentin Lejeune</b>.<br>© <span id="y"></span> Goood Studio.
+    <a class="card cta rv" style="--d:.5s" href="https://wa.me/32473122452" target="_blank" rel="noopener">
+      <span class="logo"><svg viewBox="0 0 32 32"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.13.6 4.12 1.63 5.81L4.5 28l7.25-2.02a11.06 11.06 0 0 0 4.29.86h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.3h-.01c-1.36 0-2.7-.37-3.86-1.06l-.28-.16-4.3 1.2 1.15-4.19-.18-.29a9.16 9.16 0 0 1-1.4-4.87c0-5.06 4.12-9.18 9.19-9.18 2.45 0 4.76.96 6.49 2.7a9.13 9.13 0 0 1 2.69 6.49c0 5.06-4.12 9.18-9.18 9.18zm5.04-6.88c-.28-.14-1.63-.8-1.89-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.64-1.53-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3s.99 2.67 1.12 2.85c.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.63-.67 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.12-.25-.19-.53-.33z"/></svg></span>
+      <span class="body"><span class="name">Services personnalisés</span><span class="desc">Lancement / révision d'offre, accompagnement vente, intelligence artificielle, stratégie réseaux sociaux… On en parle directement avec Valentin sur WhatsApp.</span></span>
+      <span class="arrow">↗</span>
+    </a>
+
+    <footer class="rv" style="--d:.6s">
+      Fait à quatre mains par <b>Anne-Charlotte Jalhay</b>
+      <a class="fico" href="https://www.linkedin.com/in/annecharlottejalhay/" target="_blank" rel="noopener" aria-label="LinkedIn Anne-Charlotte"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#0A66C2"/><path fill="#fff" d="M13.6 15.6a2.15 2.15 0 1 0 0-4.3 2.15 2.15 0 0 0 0 4.3zM11.8 17.3h3.6V29h-3.6zM17.7 17.3h3.45v1.6h.05c.48-.9 1.66-1.86 3.42-1.86 3.66 0 4.33 2.4 4.33 5.53V29h-3.6v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V29h-3.6z"/></svg></a><a class="fico" href="https://www.instagram.com/annecharlotte.diet/" target="_blank" rel="noopener" aria-label="Instagram Anne-Charlotte"><svg viewBox="0 0 40 40"><defs><radialGradient id="ig2" cx="30%" cy="107%" r="135%"><stop offset="0" stop-color="#FED576"/><stop offset=".26" stop-color="#F47133"/><stop offset=".5" stop-color="#BC3081"/><stop offset=".78" stop-color="#4C63D2"/></radialGradient></defs><rect width="40" height="40" fill="url(#ig2)"/><g fill="none" stroke="#fff" stroke-width="2.4"><rect x="11.5" y="11.5" width="17" height="17" rx="5"/><circle cx="20" cy="20" r="4.3"/></g><circle cx="25.2" cy="14.8" r="1.4" fill="#fff"/></svg></a>
+      &amp; <b>Valentin Lejeune</b>
+      <a class="fico" href="https://www.linkedin.com/in/valentinlejeune/" target="_blank" rel="noopener" aria-label="LinkedIn Valentin"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#0A66C2"/><path fill="#fff" d="M13.6 15.6a2.15 2.15 0 1 0 0-4.3 2.15 2.15 0 0 0 0 4.3zM11.8 17.3h3.6V29h-3.6zM17.7 17.3h3.45v1.6h.05c.48-.9 1.66-1.86 3.42-1.86 3.66 0 4.33 2.4 4.33 5.53V29h-3.6v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V29h-3.6z"/></svg></a>
+      <br>© <span id="y"></span> Goood Studio.
     </footer>
   </div>
 
