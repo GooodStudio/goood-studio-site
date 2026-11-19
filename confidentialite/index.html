@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confidentialité · Goood Studio</title>
+<meta name="description" content="Ce que gooodstudio.com fait de tes données : aucun formulaire, une mesure d’audience sans cookie (DataFast), et tes droits.">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<script>
+/* Même mesure que la page d'accueil : DataFast sans cookie + ménage des anciens cookies datafast_*. */
+(function () {
+  var hote = location.hostname;
+  document.cookie.split(';').forEach(function (c) {
+    var n = c.split('=')[0].trim();
+    if (!/^datafast_/.test(n)) return;
+    [hote, '.' + hote.replace(/^www\./, '')].forEach(function (d) {
+      document.cookie = n + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + d;
+    });
+    document.cookie = n + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+  });
+  window.datafast = window.datafast || function () { (window.datafast.q = window.datafast.q || []).push(arguments); };
+  if (hote !== 'gooodstudio.com' && hote !== 'www.gooodstudio.com') return;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://datafa.st/js/script.cookieless.js';
+  s.setAttribute('data-website-id', 'dfid_lFZ75UzW3QrTsl1jtvScj');
+  s.setAttribute('data-domain', 'gooodstudio.com');
+  document.head.appendChild(s);
+})();
+</script>
+<style>
+  :root{--wine:#5E1F2E;--gold:#C9A227;--ink:#111214;--muted:#6a6560;--line:#eadfce}
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:#fff;color:#1a1a1c;font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:640px;margin:0 auto;padding:30px 18px 80px}
+  .back{display:inline-block;color:var(--wine);font-weight:600;font-size:14px;text-decoration:none;margin-bottom:22px}
+  h1{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.02em;font-size:clamp(30px,7vw,40px);line-height:1.05;margin:0 0 10px;color:var(--ink)}
+  .lead{font-size:17px;color:var(--muted);margin:0 0 8px}
+  h2{font-family:"Space Grotesk";font-weight:700;font-size:20px;letter-spacing:-.01em;margin:30px 0 8px;color:var(--wine)}
+  p{margin:0 0 14px;font-size:16px}
+  a{color:var(--wine);text-underline-offset:2px}
+  code{font-size:.9em;background:#f6f1ea;border-radius:5px;padding:1px 5px}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0 16px}
+  .muted{color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="/">← Goood Studio</a>
+    <h1>Confidentialité</h1>
+    <p class="lead">Ce que gooodstudio.com fait de tes données, et ce qu’il ne fait pas.</p>
+
+    <h2>Qui s’occupe de tes données</h2>
+    <p>Le site gooodstudio.com est édité par Goood Studio SRL (BCE BE 1033864503), Namur, Belgique. Pour toute question sur tes données, écris-nous à <a href="mailto:info@gooodstudio.com">info@gooodstudio.com</a>.</p>
+
+    <h2>Ce que le site collecte</h2>
+    <p>Le site n’a ni formulaire ni compte : tu n’y laisses ni ton nom, ni ton adresse email. Les liens vers WhatsApp, LinkedIn, Instagram et nos applications t’emmènent sur ces services, qui appliquent leur propre politique de confidentialité.</p>
+
+    <h2 id="cookies">Mesure d’audience, sans cookie</h2>
+    <p>Pour savoir combien de personnes visitent le site et ce qui les intéresse, nous utilisons DataFast (datafa.st) dans son mode « sans cookie » : aucun cookie n’est déposé et la mesure n’envoie aucune donnée à Google. DataFast compte les pages consultées, les liens cliqués vers l’extérieur, la provenance des visites (moteur de recherche, réseau social…), le type d’appareil et de navigateur, et le pays. Les visites sont reconnues par un identifiant anonyme calculé sur le serveur de DataFast et renouvelé chaque jour ; seul un identifiant de session temporaire est gardé dans ton navigateur, effacé à la fermeture de l’onglet.</p>
+    <p>Base légale : notre intérêt légitime à mesurer la fréquentation du site (article 6.1.f du RGPD). Tu peux t’y opposer à tout moment en nous écrivant. DataFast est exploité par JustShipIt Pte. Ltd. ; une partie de son infrastructure se trouve hors de l’Union européenne, notamment aux États-Unis, avec des clauses contractuelles types.</p>
+    <p>Pas de bandeau, parce que pas de cookie de mesure : le site n’utilise ni Google Analytics, ni cookie publicitaire, ni traceur de profilage. Si tu es venu·e avant le 19 novembre 2026, ton navigateur peut encore garder d’anciens cookies DataFast (<code>datafast_visitor_id</code>, <code>datafast_session_id</code>) : le site les efface à ta prochaine visite.</p>
+    <p>Les polices de caractères du site sont chargées depuis Google Fonts : ton navigateur contacte alors les serveurs de Google, qui reçoivent ton adresse IP pour t’envoyer le fichier.</p>
+
+    <h2>Tes droits</h2>
+    <p>Tu peux demander l’accès à tes données, leur rectification ou leur effacement, et t’opposer à leur traitement, en écrivant à <a href="mailto:info@gooodstudio.com">info@gooodstudio.com</a>. Si tu estimes que tes droits ne sont pas respectés, tu peux introduire une plainte auprès de l’Autorité de protection des données (<a href="https://www.autoriteprotectiondonnees.be" rel="noopener">autoriteprotectiondonnees.be</a>).</p>
+
+    <hr>
+    <p class="muted">Mise à jour : 19 novembre 2026.</p>
+  </main>
+</body>
+</html>
