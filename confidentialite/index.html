@@ -7,9 +7,10 @@
 <meta name="description" content="Ce que gooodstudio.com fait de tes données : aucun formulaire, une mesure d’audience sans cookie (DataFast), et tes droits.">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<!-- Polices auto-hébergées (fonts/fonts.css) : aucun appel à Google Fonts -->
+<link rel="preload" href="/fonts/hanken-grotesk-latin-7579623a.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-latin-1d9f0cbb.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <script>
 /* Même mesure que la page d'accueil : DataFast sans cookie + ménage des anciens cookies datafast_*. */
 (function () {
@@ -65,7 +66,7 @@
     <p>Pour savoir combien de personnes visitent le site et ce qui les intéresse, nous utilisons DataFast (datafa.st) dans son mode « sans cookie » : aucun cookie n’est déposé et la mesure n’envoie aucune donnée à Google. DataFast compte les pages consultées, les liens cliqués vers l’extérieur, la provenance des visites (moteur de recherche, réseau social…), le type d’appareil et de navigateur, et le pays. Les visites sont reconnues par un identifiant anonyme calculé sur le serveur de DataFast et renouvelé chaque jour ; seul un identifiant de session temporaire est gardé dans ton navigateur, effacé à la fermeture de l’onglet.</p>
     <p>Base légale : notre intérêt légitime à mesurer la fréquentation du site (article 6.1.f du RGPD). Tu peux t’y opposer à tout moment en nous écrivant. DataFast est exploité par JustShipIt Pte. Ltd. ; une partie de son infrastructure se trouve hors de l’Union européenne, notamment aux États-Unis, avec des clauses contractuelles types.</p>
     <p>Pas de bandeau, parce que pas de cookie de mesure : le site n’utilise ni Google Analytics, ni cookie publicitaire, ni traceur de profilage. Si tu es venu·e avant le 19 novembre 2026, ton navigateur peut encore garder d’anciens cookies DataFast (<code>datafast_visitor_id</code>, <code>datafast_session_id</code>) : le site les efface à ta prochaine visite.</p>
-    <p>Les polices de caractères du site sont chargées depuis Google Fonts : ton navigateur contacte alors les serveurs de Google, qui reçoivent ton adresse IP pour t’envoyer le fichier.</p>
+    <p>Les polices de caractères sont servies par le site lui-même : ton navigateur ne contacte pas Google Fonts.</p>
 
     <h2>Tes droits</h2>
     <p>Tu peux demander l’accès à tes données, leur rectification ou leur effacement, et t’opposer à leur traitement, en écrivant à <a href="mailto:info@gooodstudio.com">info@gooodstudio.com</a>. Si tu estimes que tes droits ne sont pas respectés, tu peux introduire une plainte auprès de l’Autorité de protection des données (<a href="https://www.autoriteprotectiondonnees.be" rel="noopener">autoriteprotectiondonnees.be</a>).</p>
